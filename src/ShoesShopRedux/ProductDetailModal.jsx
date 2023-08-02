@@ -17,6 +17,7 @@ const ProductDetailModal = ({ product }) => {
     const handleAddToCart = () => {
         dispatch(shoesShopRedux.handleIsOpenModal(HANDLE_ISOPENCARTMODAL, true));
         dispatch(shoesShopRedux.handleAddCart(product));
+        dispatch(shoesShopRedux.handleSubtotalCart());
         handleCancel();
     };
 

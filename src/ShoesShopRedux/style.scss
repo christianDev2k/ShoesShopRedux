@@ -1,3 +1,12 @@
 :where(.css-dev-only-do-not-override-txh9fw).ant-modal .ant-modal-content {
     padding: 0;
 }
+
+.cart-drawer {
+    .ant-drawer-body {
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

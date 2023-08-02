@@ -9,6 +9,7 @@ import CartModal from './CartModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { shoesShopRedux } from './actions';
 import { HANDLE_ISOPENCARTMODAL } from './actionsType';
+import CheckoutConfirm from './CheckoutConfirm';
 
 const ShoesShopRedux = () => {
     const { productDetail } = useSelector(state => state.shoesShopReducer);
@@ -36,6 +37,8 @@ const ShoesShopRedux = () => {
 
             {/* Cart modal */}
             <CartModal />
+
+            <CheckoutConfirm />
         </div>
     );
 };

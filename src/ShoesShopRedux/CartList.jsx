@@ -10,10 +10,12 @@ const CartList = () => {
 
     const handleDeteteCart = id => {
         dispatch(shoesShopRedux.handleDeleteCart(id));
+        dispatch(shoesShopRedux.handleSubtotalCart());
     };
 
     const onChange = (value, id) => {
         dispatch(shoesShopRedux.handleEditQtyCart({ value, id }));
+        dispatch(shoesShopRedux.handleSubtotalCart());
     };
 
     return (
@@ -33,7 +35,7 @@ const CartList = () => {
                                         <p className='text-gray-600 text-base mt-2'>${price.toFixed(2)}</p>
                                         <InputNumber
                                             min={1}
-                                            defaultValue={cartQty}
+                                            value={cartQty}
                                             className='mt-2 w-16'
                                             onChange={value => onChange(value, id)}
                                         />

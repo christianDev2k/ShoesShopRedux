@@ -12,7 +12,9 @@ const initState = {
     },
     isOpenDetailModal: false,
     isOpenCartModal: false,
+    isCheckoutConfirmModal: true,
     cartList: [],
+    cartSubtotal: 0,
 };
 
 export const shoesShopReducer = (state = initState, { type, payload }) => {
@@ -24,6 +26,8 @@ export const shoesShopReducer = (state = initState, { type, payload }) => {
             return { ...state, isOpenDetailModal: payload };
         case 'HANDLE_ISOPENCARTMODAL':
             return { ...state, isOpenCartModal: payload };
+        case 'HANDLE_ISCHECKOUTCONFIRMMODAL':
+            return { ...state, cartList: [], isCheckoutConfirmModal: payload };
         case 'HANDLE_ADDTOCART':
             index = state.cartList.findIndex(p => p.id === payload.id);
             if (index === -1) {
@@ -37,9 +41,15 @@ export const shoesShopReducer = (state = initState, { type, payload }) => {
             return { ...state, cartList: newCart };
         case 'HANDLE_EDITQTYCART':
             const { id, value } = payload;
-            index = state.cartList.findIndex(p => p.id === id)
+            index = state.cartList.findIndex(p => p.id === id);
             state.cartList[index].cartQty = value;
             return { ...state };
+        case 'HANDLE_SUBTOTALCART':
+            const newSubtitle = state.cartList.reduce((acc, { price, cartQty }) => {
+                acc += price * cartQty;
+                return acc;
+            }, 0);
+            return { ...state, cartSubtotal: newSubtitle };
         default:
             return state;
     }
