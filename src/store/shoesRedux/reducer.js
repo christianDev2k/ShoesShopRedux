@@ -15,6 +15,7 @@ const initState = {
     isCheckoutConfirmModal: false,
     cartList: [],
     cartSubtotal: 0,
+    cartBadgeQty: 0,
 };
 
 export const shoesShopReducer = (state = initState, { type, payload }) => {
@@ -50,6 +51,13 @@ export const shoesShopReducer = (state = initState, { type, payload }) => {
                 return acc;
             }, 0);
             return { ...state, cartSubtotal: newSubtitle };
+        case 'HANDLE_CARTBADGEQTY':
+            console.log(1);
+            const quantity = state.cartList.reduce((acc, { cartQty }) => {
+                acc += cartQty;
+                return acc;
+            }, 0);
+            return { ...state, cartBadgeQty: quantity };
         default:
             return state;
     }

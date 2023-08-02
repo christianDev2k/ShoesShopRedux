@@ -11,11 +11,13 @@ const CartList = () => {
     const handleDeteteCart = id => {
         dispatch(shoesShopRedux.handleDeleteCart(id));
         dispatch(shoesShopRedux.handleSubtotalCart());
+        dispatch(shoesShopRedux.handleCartBadgeQty());
     };
 
     const onChange = (value, id) => {
         dispatch(shoesShopRedux.handleEditQtyCart({ value, id }));
         dispatch(shoesShopRedux.handleSubtotalCart());
+        dispatch(shoesShopRedux.handleCartBadgeQty());
     };
 
     return (

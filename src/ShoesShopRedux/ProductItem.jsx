@@ -18,6 +18,7 @@ const ProductItem = ({ product }) => {
         dispatch(shoesShopRedux.handleIsOpenModal(HANDLE_ISOPENCARTMODAL, true));
         dispatch(shoesShopRedux.handleAddCart(product));
         dispatch(shoesShopRedux.handleSubtotalCart());
+        dispatch(shoesShopRedux.handleCartBadgeQty());
     };
 
     return (

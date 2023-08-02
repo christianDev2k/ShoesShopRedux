@@ -1,4 +1,4 @@
-import { HANDLE_ADDTOCART, HANDLE_DELETECART, HANDLE_EDITQTYCART, HANDLE_PRODUCTDETAIL, HANDLE_SUBTOTALCART } from './actionsType';
+import { HANDLE_ADDTOCART, HANDLE_CARTBADGEQTY, HANDLE_DELETECART, HANDLE_EDITQTYCART, HANDLE_PRODUCTDETAIL, HANDLE_SUBTOTALCART } from './actionsType';
 
 export const shoesShopRedux = {
     handleProductDetail: payload => {
@@ -35,6 +35,12 @@ export const shoesShopRedux = {
     handleSubtotalCart: payload => {
         return {
             type: HANDLE_SUBTOTALCART,
+            payload,
+        };
+    },
+    handleCartBadgeQty: payload => {
+        return {
+            type: HANDLE_CARTBADGEQTY,
             payload,
         };
     },

@@ -13,6 +13,7 @@ import CheckoutConfirm from './CheckoutConfirm';
 
 const ShoesShopRedux = () => {
     const { productDetail } = useSelector(state => state.shoesShopReducer);
+    const { cartBadgeQty } = useSelector(state => state.shoesShopReducer);
     const dispatch = useDispatch();
 
     const handleOpenCart = () => {
@@ -25,7 +26,7 @@ const ShoesShopRedux = () => {
                 <div></div>
                 <h1 className='col-span-2 text-center font-bold text-5xl'>Shoes Shop Redux</h1>
                 <div className='ml-auto cursor-pointer' onClick={handleOpenCart}>
-                    <Badge count={0} showZero offset={[0, 15]} size='small'>
+                    <Badge count={cartBadgeQty} offset={[0, 15]} size='small'>
                         <ShoppingOutlined className='text-3xl' />
                     </Badge>
                 </div>
