@@ -12,7 +12,7 @@ const initState = {
     },
     isOpenDetailModal: false,
     isOpenCartModal: false,
-    isCheckoutConfirmModal: true,
+    isCheckoutConfirmModal: false,
     cartList: [],
     cartSubtotal: 0,
 };
