@@ -1,3 +1,5 @@
+import { HANDLE_ADDTOCART, HANDLE_CARTBADGEQTY, HANDLE_DELETECART, HANDLE_EDITQTYCART, HANDLE_ISCHECKOUTCONFIRMMODAL, HANDLE_ISOPENCARTMODAL, HANDLE_ISOPENDETAILMODAL, HANDLE_PRODUCTDETAIL, HANDLE_SUBTOTALCART } from "./actionsType";
+
 const initState = {
     productDetail: {
         id: 12,
@@ -21,15 +23,15 @@ const initState = {
 export const shoesShopReducer = (state = initState, { type, payload }) => {
     let index = -1;
     switch (type) {
-        case 'HANDLE_PRODUCTDETAIL':
+        case HANDLE_PRODUCTDETAIL:
             return { ...state, productDetail: payload };
-        case 'HANDLE_ISOPENDETAILMODAL':
+        case HANDLE_ISOPENDETAILMODAL:
             return { ...state, isOpenDetailModal: payload };
-        case 'HANDLE_ISOPENCARTMODAL':
+        case HANDLE_ISOPENCARTMODAL:
             return { ...state, isOpenCartModal: payload };
-        case 'HANDLE_ISCHECKOUTCONFIRMMODAL':
+        case HANDLE_ISCHECKOUTCONFIRMMODAL:
             return { ...state, cartList: [], isCheckoutConfirmModal: payload };
-        case 'HANDLE_ADDTOCART':
+        case HANDLE_ADDTOCART:
             index = state.cartList.findIndex(p => p.id === payload.id);
             if (index === -1) {
                 return { ...state, cartList: [...state.cartList, { ...payload, cartQty: 1 }] };
@@ -37,22 +39,21 @@ export const shoesShopReducer = (state = initState, { type, payload }) => {
                 state.cartList[index].cartQty += 1;
             }
             return { ...state };
-        case 'HANDLE_DELETECART':
+        case HANDLE_DELETECART:
             const newCart = state.cartList.filter(p => p.id !== payload);
             return { ...state, cartList: newCart };
-        case 'HANDLE_EDITQTYCART':
+        case HANDLE_EDITQTYCART:
             const { id, value } = payload;
             index = state.cartList.findIndex(p => p.id === id);
             state.cartList[index].cartQty = value;
             return { ...state };
-        case 'HANDLE_SUBTOTALCART':
+        case HANDLE_SUBTOTALCART:
             const newSubtitle = state.cartList.reduce((acc, { price, cartQty }) => {
                 acc += price * cartQty;
                 return acc;
             }, 0);
             return { ...state, cartSubtotal: newSubtitle };
-        case 'HANDLE_CARTBADGEQTY':
-            console.log(1);
+        case HANDLE_CARTBADGEQTY:
             const quantity = state.cartList.reduce((acc, { cartQty }) => {
                 acc += cartQty;
                 return acc;

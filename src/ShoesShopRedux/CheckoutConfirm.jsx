@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Modal } from 'antd';
+import { Button, Modal, Popover } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { shoesShopRedux } from './actions';
-import { HANDLE_ISCHECKOUTCONFIRMMODAL } from './actionsType';
+import { shoesShopRedux } from '../store/shoesRedux/actions';
+import { HANDLE_ISCHECKOUTCONFIRMMODAL } from '../store/shoesRedux/actionsType';
 
 const CheckoutConfirm = () => {
     const { cartSubtotal } = useSelector(state => state.shoesShopReducer);
@@ -23,12 +23,21 @@ const CheckoutConfirm = () => {
                 <img src='./checkoutImg.jpg' alt='' className='w-1/2 mx-auto' />
                 <p className='mt-4'>Thank you! Your items is ready for pickup.</p>
                 <div className='flex justify-around mt-4'>
-                    <Button type='primary' size={'large'} className='bg-blue-500' onClick={handleClose}>
-                        Paid
-                    </Button>
-                    <Button type='primary' size={'large'} className='bg-blue-500' disabled>
-                        Unpaid
-                    </Button>
+                    <Popover placement='top' content='That right! Amazing good job.' trigger='hover'>
+                        <Button type='primary' size={'large'} className='bg-blue-500' onClick={handleClose}>
+                            OK
+                        </Button>
+                    </Popover>
+                    <Popover
+                        placement='top'
+                        content='You must pay for your order :))'
+                        className='bg-transparent'
+                        trigger='hover'
+                    >
+                        <Button type='primary' size={'large'} className='bg-blue-500' disabled>
+                            Unpaid
+                        </Button>
+                    </Popover>
                 </div>
             </div>
         </Modal>

@@ -1,8 +1,8 @@
 import { Button, Modal, InputNumber } from 'antd';
 import { StarFilled } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { shoesShopRedux } from './actions';
-import { HANDLE_ISOPENCARTMODAL, HANDLE_ISOPENDETAILMODAL } from './actionsType';
+import { shoesShopRedux } from '../store/shoesRedux/actions';
+import { HANDLE_ISOPENCARTMODAL, HANDLE_ISOPENDETAILMODAL } from '../store/shoesRedux/actionsType';
 
 const ProductDetailModal = ({ product }) => {
     const { image, name, price, description, quantity } = product;

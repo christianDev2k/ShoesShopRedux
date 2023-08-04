@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, Button, Rate } from 'antd';
 import { useDispatch } from 'react-redux';
-import { shoesShopRedux } from './actions';
-import { HANDLE_ISOPENCARTMODAL, HANDLE_ISOPENDETAILMODAL } from './actionsType';
+import { shoesShopRedux } from '../store/shoesRedux/actions';
+import { HANDLE_ISOPENDETAILMODAL, HANDLE_ISOPENCARTMODAL } from '../store/shoesRedux/actionsType';
 
 const ProductItem = ({ product }) => {
     const { name, image, price, shortDescription } = product;

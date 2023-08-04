@@ -7,8 +7,8 @@ import ProductDetailModal from './ProductDetailModal';
 import { Badge } from 'antd';
 import CartModal from './CartModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { shoesShopRedux } from './actions';
-import { HANDLE_ISOPENCARTMODAL } from './actionsType';
+import { shoesShopRedux } from '../store/shoesRedux/actions';
+import { HANDLE_ISOPENCARTMODAL } from '../store/shoesRedux/actionsType';
 import CheckoutConfirm from './CheckoutConfirm';
 
 const ShoesShopRedux = () => {

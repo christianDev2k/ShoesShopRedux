@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { InputNumber, List } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-import { shoesShopRedux } from './actions';
+import { shoesShopRedux } from '../store/shoesRedux/actions';
 
 const CartList = () => {
     const { cartList } = useSelector(state => state.shoesShopReducer);
